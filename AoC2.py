@@ -31,7 +31,7 @@ while(emptyInput == False):
                 else:
                     break
             else:
-                if list[i] > list[i+1] and list[i]+maxVar <= list[i+1]:
+                if list[i] > list[i+1] and list[i]-maxVar <= list[i+1]:
                     if i+1 == len(list)-1:
                         resultPart1+=1
                     continue
