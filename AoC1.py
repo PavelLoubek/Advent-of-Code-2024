@@ -37,7 +37,7 @@ print("Result for part 1 is " + str(result))
 # Part2
 listRange = range(len(list1))
 for x in listRange:
-    countNum1 = list1.count(list1[x])
+    countNum1 = int(list1[x])
     countNum2 = list2.count(list1[x])
     res = countNum1 * countNum2
     listResultsPart2.append(res)
