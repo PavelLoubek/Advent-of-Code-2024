@@ -42,7 +42,13 @@ while(emptyInput == False):
         
         # Part 2
         problemDampener = False
+        listEquals = False
+
+        if list[0] == list[1]:
+            list.remove(list[0])
+            problemDampener = True
         for i in range(len(list)-1):
+            print (i,list[i],list[i+1])
             if listAscending:
                 if list[i] < list[i+1] and list[i]+maxVar >= list[i+1]:
                     if i+1 == len(list)-1:
@@ -58,6 +64,9 @@ while(emptyInput == False):
                         if list[i] < list[i+2] and list[i]+maxVar >= list[i+2]:
                             i+=1
                             problemDampener == True
+                            continue
+                        else:
+                            i+=1
                             continue
                 else:
                     break
@@ -76,6 +85,9 @@ while(emptyInput == False):
                         if list[i] > list[i+2] and list[i]-maxVar <= list[i+2]:
                             i+=1
                             problemDampener == True
+                            continue
+                        else:
+                            i+=1
                             continue
                 else:
                     break
