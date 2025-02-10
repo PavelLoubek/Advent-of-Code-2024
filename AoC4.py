@@ -7,6 +7,7 @@ file2DArray = fileString.splitlines()
 
 # Vars
 resultPart1 = 0
+resultPart2 = 0
 
 # Function
 def CheckCoordLetter(coordRow, coordCol, letter):
@@ -26,7 +27,7 @@ for row in range(len(file2DArray)):
     for col in range(len(file2DArray[row])):
         if file2DArray[row][col] == "X":
             # Top left
-            if (CheckCoordLetter(row-1,col-1,"M") and CheckCoordLetter(row-2,col-2,"A") and CheckCoordLetter(row-3,col-3,"S")):
+            if CheckCoordLetter(row-1,col-1,"M") and CheckCoordLetter(row-2,col-2,"A") and CheckCoordLetter(row-3,col-3,"S"):
                 resultPart1+=1
             # Top middle
             if CheckCoordLetter(row-1,col,"M") and CheckCoordLetter(row-2,col,"A") and CheckCoordLetter(row-3,col,"S"):
@@ -51,6 +52,25 @@ for row in range(len(file2DArray)):
                 resultPart1+=1
 
 # Part 2
+for row in range(len(file2DArray)):
+    for col in range(len(file2DArray[row])):
+        if file2DArray[row][col] == "A":
+            count = 0
+            # Top left
+            if CheckCoordLetter(row-1,col-1,"M") and CheckCoordLetter(row+1,col+1,"S"):
+                count+=1
+            # Top right
+            if CheckCoordLetter(row-1,col+1,"M") and CheckCoordLetter(row+1,col-1,"S"):
+                count+=1
+            # Bottom left
+            if CheckCoordLetter(row+1,col-1,"M") and CheckCoordLetter(row-1,col+1,"S"):
+                count+=1
+            # Bottom right
+            if CheckCoordLetter(row+1,col+1,"M") and CheckCoordLetter(row-1,col-1,"S"):
+                count+=1
+            if count >= 2:
+                resultPart2+=1
 
 # Finish
 print("Result for part 1 is " + str(resultPart1))
+print("Result for part 2 is " + str(resultPart2))
